@@ -9,7 +9,7 @@ What you get:
 - **Log Analytics** diagnostics (Audit + optional RequestResponse) for hunting
 - Clean **Terraform modules** for network, OpenAI, logging, and APIM
 
-> ⚠️ **Reality check:** This costs real money while it’s running. APIM, Log Analytics, and model usage add up. Use dev SKUs, keep retention tight, and **destroy** the env when you’re done.
+> ⚠️ **WARNING:** This costs real money while it’s running. APIM, Log Analytics, and model usage add up. Use at the risk of your own wallet.
 
 ---
 
