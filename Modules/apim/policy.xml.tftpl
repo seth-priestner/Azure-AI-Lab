@@ -1,0 +1,30 @@
+<policies>
+  <inbound>
+    <base />
+    <!-- Require operator attribution -->
+    <choose>
+      <when condition="@(string.IsNullOrEmpty(context.Request.Headers.GetValueOrDefault("X-Operator-ID","")))">
+        <return-response>
+          <set-status code="400" reason="Missing X-Operator-ID" />
+          <set-body>{"error":"X-Operator-ID header required"}</set-body>
+        </return-response>
+      </when>
+    </choose>
+
+    <!-- Per-operator rate limiting -->
+    <rate-limit-by-key calls="${rate_limit_calls}" renewal-period="${rate_limit_seconds}"
+      counter-key="@(context.Request.Headers.GetValueOrDefault("X-Operator-ID","unknown"))" />
+
+    <!-- Call AOAI using APIM's managed identity -->
+    <authentication-managed-identity resource="https://cognitiveservices.azure.com/" />
+  </inbound>
+  <backend>
+    <base />
+  </backend>
+  <outbound>
+    <base />
+  </outbound>
+  <on-error>
+    <base />
+  </on-error>
+</policies>
