@@ -279,11 +279,3 @@ PRs welcome. Keep changes modular (modules only), no model keys in code, and no 
 
 MIT for the code. Intended for **internal testing/training**. You’re responsible for usage and cost.
 
----
-
-### Paste-ready blurb for your team chat
-
-> Want a safe AI red-team playground? Deploy our **Azure AI Red-Team Range**: private Azure OpenAI behind APIM (MSI/RBAC), per-operator throttling, and full logging.  
-> **How:** open Azure Cloud Shell →  
-> `git clone <REPO_URL> && cd azure-ai-redteam/envs/dev && terraform init && terraform apply -auto-approve`  
-> Then run the curl smoke test from the README. Destroy when done.
